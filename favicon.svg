@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <style>
+    .ground { fill: #FDFCFA; }
+    .mark   { fill: #17150F; }
+    @media (prefers-color-scheme: dark) {
+      .ground { fill: #131210; }
+      .mark   { fill: #F2ECDF; }
+    }
+  </style>
+  <rect class="ground" width="300" height="300"/>
+  <g class="mark">
+    <path d="M0 0 H150 A150 150 0 0 1 150 300 H0 Z M38 38 V262 H150 A112 112 0 0 0 150 38 Z"/>
+    <circle cx="150" cy="150" r="33"/>
+  </g>
+</svg>

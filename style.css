@@ -1,0 +1,398 @@
+/* ==========================================================================
+   David Lerner Schwartz
+   Funnel Display (logotype) · Montagu Slab (nav, subheadings)
+   Sedan (body) · IBM Plex Mono (venues, section index)
+   ========================================================================== */
+
+:root {
+  --paper:   #F4F3ED;   /* bone with a green cast, not cream */
+  --raise:   #EDEBE2;
+  --ink:     #0F1310;   /* near-black, green bias */
+  --soft:    #4B5049;
+  --faint:   #8B8F86;
+  --rule:    #DCDACE;
+  --teal:    #00A88C;   /* the stroke */
+  --pop:     #FF5C39;   /* persimmon: hover and current-page */
+  --mark:    rgba(255, 214, 92, .45);   /* soft yellow: text selection */
+
+  /* the teal stroke: a drawn wave, not a ruled line */
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='8' viewBox='0 0 36 8'%3E%3Cpath d='M0 4 q 4.5 -3 9 0 t 9 0 t 9 0 t 9 0' fill='none' stroke='%2300A88C' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  --wave-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='8' viewBox='0 0 36 8'%3E%3Cpath d='M0 4 q 4.5 -3 9 0 t 9 0 t 9 0 t 9 0' fill='none' stroke='%234B5049' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  --serif:  "Sedan", Georgia, serif;                  /* body */
+  --disp:   "Montagu Slab", Georgia, serif;           /* nav, subheadings */
+  --logo:   "Funnel Display", ui-sans-serif, sans-serif;
+  --mono:   "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --col: 62rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0F1210;
+    --raise: #171B18;
+    --ink:   #EFEEE5;
+    --soft:  #B2B5AC;
+    --faint: #7C8078;
+    --rule:  #2C312D;
+    --teal:  #2FE0BE;
+    --pop:   #FF7A55;
+    --mark:  rgba(255, 214, 92, .3);
+    --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='8' viewBox='0 0 36 8'%3E%3Cpath d='M0 4 q 4.5 -3 9 0 t 9 0 t 9 0 t 9 0' fill='none' stroke='%232FE0BE' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E");
+    --wave-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='8' viewBox='0 0 36 8'%3E%3Cpath d='M0 4 q 4.5 -3 9 0 t 9 0 t 9 0 t 9 0' fill='none' stroke='%23B2B5AC' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-size: clamp(1.24rem, 1.12rem + .55vw, 1.56rem);
+  line-height: 1.54;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures contextual
+                          no-discretionary-ligatures no-historical-ligatures;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+em, i { font-style: italic; }
+::selection { background: var(--mark); }
+:focus-visible { outline: 2px solid var(--pop); outline-offset: 3px; }
+
+.wrap {
+  max-width: var(--col);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+/* the stroke, reusable */
+.stroke {
+  background-image: var(--wave);
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 36px 8px;
+}
+
+/* --------------------------------------------------------- masthead ----- */
+
+.masthead {
+  background: var(--paper);
+  background-image: var(--wave);
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 36px 8px;
+}
+
+.masthead__inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.6rem 1.5rem;
+}
+
+.monogram {
+  font-family: var(--logo);
+  font-weight: 800;
+  font-size: 1.56rem;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+  color: var(--teal);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+
+
+.nav {
+  display: flex;
+  align-items: baseline;
+  margin-left: auto;
+  gap: clamp(1rem, 3vw, 2rem);
+  font-family: var(--disp);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.nav a { color: var(--soft); text-decoration: none; transition: color .2s; }
+.nav a:hover { color: var(--teal); }
+
+.nav a[aria-current="page"] { color: var(--pop); }
+
+
+/* --------------------------------------------------------- links -------- */
+
+a { color: inherit; }
+
+.lnk {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+  transition: text-decoration-color .2s, color .2s;
+}
+
+.lnk:visited { color: var(--soft); }
+
+.lnk:hover,
+.lnk:focus-visible { color: var(--pop); }
+
+/* --------------------------------------------------------- about -------- */
+
+.bio { padding-block: clamp(1.4rem, 3vw, 2.1rem) clamp(2.5rem, 6vw, 4rem); }
+.bio p { margin: 0 0 1em; text-wrap: pretty; }
+.bio p:last-child { margin-bottom: 0; }
+.bio::after { content: ""; display: block; clear: both; }
+
+.logotype {
+  font-family: var(--logo);
+  font-weight: 800;
+  letter-spacing: -.035em;
+  color: var(--teal);
+}
+
+.bio__lede {
+  font-size: 1.24em;
+  line-height: 1.36;
+}
+
+/* portrait, with the teal stroke offset behind it */
+.bio__portrait {
+  float: right;
+  width: 58%;
+  margin: .2rem 0 1.5rem 2.5rem;
+}
+
+.bio__portrait img {
+  width: 100%;
+  height: auto;   /* neutralise the img height attribute so aspect-ratio wins */
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 56% 30%;
+}
+
+.stage { margin: 0; padding-bottom: clamp(1.5rem, 4vw, 2.25rem); }
+.stage img { width: 100%; height: auto; }
+
+/* --------------------------------------------------------- writing ------ */
+
+.subnav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--paper);
+}
+
+.subnav__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: .3rem .55rem;
+  padding-block: 1.1rem;
+  font-family: var(--mono);
+  font-size: clamp(.68rem, .63rem + .16vw, .78rem);
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* the rule starts where the section headings start and insets evenly */
+.subnav__inner::after {
+  content: "";
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 0;
+  height: 1px;
+  background: var(--rule);
+}
+
+.subnav a { color: var(--soft); text-decoration: none; transition: color .2s; }
+.subnav a:hover { color: var(--teal); }
+.subnav a[aria-current="true"] { color: var(--teal); font-weight: 700; }
+.subnav a.is-pinned { color: var(--pop); }
+
+.subnav a:not(:last-child)::after {
+  content: "/";
+  color: var(--faint);
+  margin-left: .55rem;
+  font-weight: 400;
+}
+
+.group { padding-block: 1rem .8rem; }
+.group:first-of-type { padding-top: clamp(1.1rem, 2.2vw, 1.6rem); }
+.group:last-of-type { padding-bottom: clamp(3rem, 8vw, 5rem); }
+
+.group__title {
+  font-family: var(--disp);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.15;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 .55rem;
+}
+
+.entries { list-style: none; margin: 0; padding: 0; }
+
+/* wide enough for a margin: titles line up with the subheading and the emoji
+   hangs outside the column, in the negative space */
+@media (min-width: 58rem) {
+  .entries { margin-left: -2.45rem; }
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 1.9rem 1fr;
+  gap: 0 .55rem;
+  align-items: baseline;
+  padding-block: .48rem;
+  font-size: 1.34rem;
+  line-height: 1.42;
+}
+
+/* the emoji is a reward for looking, not a permanent bullet */
+.entry__mark {
+  font-size: .88em;
+  line-height: 1.3;
+  opacity: 0;
+  transform: translateX(-.2rem);
+  transition: opacity .22s ease, transform .28s cubic-bezier(.2, .9, .3, 1.4);
+}
+
+.entry:hover .entry__mark,
+.entry:focus-within .entry__mark { opacity: 1; transform: none; }
+
+/* the opening quote hangs so the titles line up on the letter, not the mark */
+.entry__title { text-wrap: pretty; text-indent: -.34em; }
+.entry--noquote .entry__title { text-indent: 0; }
+
+.entry__venue {
+  font-family: var(--mono);
+  font-style: italic;
+  font-size: .76em;
+  letter-spacing: -.02em;
+  color: var(--faint);
+  white-space: nowrap;
+  margin-left: .1em;
+}
+
+.entry__with {
+  font-family: var(--mono);
+  font-size: .74em;
+  letter-spacing: -.02em;
+  color: var(--soft);
+  white-space: nowrap;
+}
+
+.entry__with::before { content: "/\00a0"; color: var(--faint); }
+
+.entry__note {
+  grid-column: 2 / -1;
+  margin: .5rem 0 .3rem;
+  font-family: var(--mono);
+  font-style: italic;
+  font-size: .8em;
+  line-height: 1.6;
+  color: var(--soft);
+  text-wrap: pretty;
+}
+
+
+
+/* a small wave, centred and quiet, marks the end of the page */
+.end {
+  display: block;
+  box-sizing: content-box;
+  width: 108px;
+  height: 8px;
+  padding-block: .75rem;
+  margin: 0 auto clamp(2rem, 5vw, 3.25rem);
+  background: var(--wave-soft) repeat-x 0 0 / 36px 8px;
+  background-origin: content-box;
+  background-clip: content-box;
+  transition: background-image .25s;
+}
+
+/* on the writing page it doubles as the way home */
+a.end:hover,
+a.end:focus-visible { background-image: var(--wave); }
+
+/* --------------------------------------------------------- responsive --- */
+
+@media (max-width: 46rem) {
+  html { scroll-padding-top: 9rem; }
+
+  /* on a phone the opening sentence leads, then the photograph, then the rest */
+  .bio { display: flex; flex-direction: column; }
+  .bio > * { order: 3; }
+  .bio__lede { order: 1; }
+  .bio__portrait { order: 2; }
+  .bio::after { display: none; }
+
+  .bio__portrait { float: none; width: 100%; margin: 0 0 1.6rem; }
+  .bio__portrait img { aspect-ratio: 3 / 2; }
+
+  .entry { grid-template-columns: 1.7rem 1fr; }
+
+  /* inline venues rag badly on narrow screens — give them their own line */
+  .entry__venue { display: block; white-space: normal; margin-top: .05rem; }
+  .entry__with { display: block; white-space: normal; }
+  .entry__with::before { content: none; }
+
+  /* mono is wide — ease the notes back so they do not sprawl on a phone */
+  .entry__note { font-size: .72em; }
+
+
+  /* the six sections stay on a single line; a very narrow screen can swipe it */
+  .subnav__inner {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    justify-content: center;
+    font-size: .68rem;
+    letter-spacing: 0;
+    gap: 0 .12rem;
+    padding-block: .95rem;
+  }
+  .subnav__inner::-webkit-scrollbar { display: none; }
+  .subnav a { white-space: nowrap; }
+  .subnav a:not(:last-child)::after { margin-left: .12rem; }
+
+  .masthead__inner { flex-wrap: wrap; gap: .5rem 1rem; }
+  .nav { margin-left: 0; }
+
+  /* the home page carries no logotype up here, so the two links centre */
+  .masthead__inner > .nav:only-child { margin-inline: auto; }
+
+}
+
+/* no hover on a touch screen, so the marks simply show */
+@media (hover: none) {
+  .entry__mark { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: .01ms !important; }
+}
