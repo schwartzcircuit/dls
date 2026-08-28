@@ -26,6 +26,9 @@
   --logo:   "Funnel Display", ui-sans-serif, sans-serif;
   --mono:   "IBM Plex Mono", ui-monospace, Menlo, monospace;
 
+  --logo-size: 1.56rem;
+  --logo-lh: 1.1;
+
   --gutter: clamp(1.25rem, 5vw, 4rem);
   --col: 62rem;
 }
@@ -50,6 +53,11 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
+  /* reserve the scrollbar on every page, or short pages sit 15px wider than
+     long ones and the layout jumps between them. scrollbar-gutter covers
+     modern browsers; overflow-y catches the rest and classic scrollbars. */
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
@@ -98,6 +106,19 @@ em, i { font-style: italic; }
   background-size: 36px 8px;
 }
 
+/* the home page wears its name in the first sentence instead of up here,
+   so hold the logotype's line and the bar matches every other page */
+.masthead__inner--ghost::before {
+  content: "\00a0";          /* a space in the logotype's own metrics, so it
+                                 sits on the same baseline the real one would */
+  font-family: var(--logo);
+  font-weight: 800;
+  font-size: var(--logo-size);
+  line-height: var(--logo-lh);
+  width: 0;
+  overflow: hidden;
+}
+
 .masthead__inner {
   display: flex;
   align-items: baseline;
@@ -109,8 +130,8 @@ em, i { font-style: italic; }
 .monogram {
   font-family: var(--logo);
   font-weight: 800;
-  font-size: 1.56rem;
-  line-height: 1.1;
+  font-size: var(--logo-size);
+  line-height: var(--logo-lh);
   letter-spacing: -.035em;
   color: var(--teal);
   text-decoration: none;
