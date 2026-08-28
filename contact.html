@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — David Lerner Schwartz</title>
+<meta name="description" content="Get in touch with David Lerner Schwartz.">
+<link rel="canonical" href="https://www.davidlernerschwartz.com/contact">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — David Lerner Schwartz">
+<meta property="og:description" content="Get in touch with David Lerner Schwartz.">
+<meta property="og:image" content="https://www.davidlernerschwartz.com/images/DSC_7343.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montagu+Slab:opsz,wght@16..144,300..700&family=Sedan:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="monogram" href="index.html">David Lerner Schwartz</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="writing.html">Writing</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+      <a href="https://schwartzstories.substack.com/">Newsletter</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="contact">
+    <h1 class="group__title contact__title">Let&rsquo;s chat</h1>
+
+    <div class="form__note form__note--ok" data-fs-success></div>
+    <div class="form__note form__note--bad" data-fs-error></div>
+
+    <!-- the action is the no-JS fallback; the script below submits in place -->
+    <form class="form" id="contact-form" action="https://formspree.io/f/mvkoonaq" method="POST">
+      <p class="field">
+        <label class="field__label" for="name">Name <span class="field__req">Required</span></label>
+        <input class="field__input" type="text" id="name" name="name" maxlength="100" required autocomplete="name" data-fs-field>
+        <span class="field__error" data-fs-error="name"></span>
+      </p>
+
+      <p class="field">
+        <label class="field__label" for="email">Email <span class="field__req">Required</span></label>
+        <input class="field__input" type="email" id="email" name="email" required autocomplete="email" data-fs-field>
+        <span class="field__error" data-fs-error="email"></span>
+      </p>
+
+      <p class="field">
+        <label class="field__label" for="message">Message <span class="field__req">Required</span></label>
+        <textarea class="field__input field__input--area" id="message" name="message" rows="6" maxlength="2000" required data-fs-field></textarea>
+        <span class="field__error" data-fs-error="message"></span>
+      </p>
+
+      <p class="field field--hidden" aria-hidden="true">
+        <label for="_gotcha">Leave this empty</label>
+        <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+      </p>
+
+      <button class="btn" type="submit" data-fs-submit-btn>Send</button>
+    </form>
+  </section>
+
+</main>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'mvkoonaq' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+<a class="end" href="index.html" aria-label="Back to the home page"></a>
+
+</body>
+</html>
