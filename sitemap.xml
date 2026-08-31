@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.davidlernerschwartz.com/</loc>
     <lastmod>2026-08-31</lastmod>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.davidlernerschwartz.com/images/DSC_7343.jpeg</image:loc>
+      <image:title>David Lerner Schwartz</image:title>
+      <image:caption>Portrait of David Lerner Schwartz.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.davidlernerschwartz.com/images/IMG_1936.jpg</image:loc>
+      <image:title>David Lerner Schwartz at the Miami Book Fair</image:title>
+      <image:caption>David Lerner Schwartz on stage in conversation at the Miami Book Fair.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.davidlernerschwartz.com/writing</loc>
