@@ -115,6 +115,20 @@ em, i { font-style: italic; }
   background-size: 36px 8px;
 }
 
+/* Safari paints ::selection across a block box, not just its glyphs, so text
+   boxes that are wider than their lines get highlighted edge to edge. Sizing
+   them to their content keeps the highlight on the words. max-width holds the
+   wrapping point, so nothing about the layout changes. */
+.bio p,
+.group__title,
+.entry__title,
+.entry__note,
+.extras li span {
+  width: fit-content;
+  max-width: 100%;
+}
+
+
 /* --------------------------------------------------------- masthead ----- */
 
 .masthead {
@@ -387,7 +401,7 @@ a.end:focus-visible { background-image: var(--wave); }
 .contact { padding-block: clamp(1.4rem, 3vw, 2.1rem) clamp(2rem, 5vw, 3rem); }
 
 
-.contact__title { text-align: center; }
+.contact__title { text-align: center; margin-inline: auto; }
 
 .form { max-width: 34rem; margin-inline: auto; }
 
