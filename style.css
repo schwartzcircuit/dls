@@ -8,8 +8,8 @@
   --paper:   #F4F3ED;   /* bone with a green cast, not cream */
   --raise:   #EDEBE2;
   --card:    #FFFFFF;
-  --venue:   #8A8474;   /* venue, note, co-author credit — the quiet layer */
-  --sep:     #8A8474;   /* the slash before a co-author credit */
+  --venue:   #7A7466;   /* venue, note, co-author credit — the quiet layer */
+  --sep:     #A39C89;   /* the slashes: subnav, and before a co-author credit */
   --ink:     #0F1310;   /* near-black, green bias */
   --soft:    #4B5049;
   --faint:   #8B8F86;
@@ -41,9 +41,9 @@
     --raise: #171B18;
     --card:  #1A1E1B;
     /* dark needs the three levels pulled further apart or they go muddy */
-    --venue: #C3BCA9;
-    /* the slash goes dimmer here, not brighter, to stay quieter than the text */
-    --sep:   #6C6860;
+    --venue: #B3AC98;
+    /* the slashes go dimmer here, not brighter, to stay quieter than the text */
+    --sep:   #615E57;
     --ink:   #EFEEE5;
     --soft:  #B2B5AC;
     --faint: #7C8078;
@@ -291,7 +291,7 @@ a { color: inherit; }
 
 .subnav a:not(:last-child)::after {
   content: "/";
-  color: var(--faint);
+  color: var(--sep);
   margin-left: .55rem;
   font-weight: 400;
 }
