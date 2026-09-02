@@ -8,8 +8,8 @@
   --paper:   #F4F3ED;   /* bone with a green cast, not cream */
   --raise:   #EDEBE2;
   --card:    #FFFFFF;
-  --venue:   #4B5049;   /* publication line */
-  --note:    #8A8474;   /* the extra line under an entry */
+  --venue:   #4B5049;   /* publication line, and the note under an entry */
+  --sep:     #8A8474;   /* the slash before a co-author credit */
   --ink:     #0F1310;   /* near-black, green bias */
   --soft:    #4B5049;
   --faint:   #8B8F86;
@@ -42,7 +42,8 @@
     --card:  #1A1E1B;
     /* dark needs the three levels pulled further apart or they go muddy */
     --venue: #8F8A7C;
-    --note:  #C3BCA9;
+    /* the slash goes dimmer here, not brighter, to stay quieter than the text */
+    --sep:   #6C6860;
     --ink:   #EFEEE5;
     --soft:  #B2B5AC;
     --faint: #7C8078;
@@ -359,22 +360,22 @@ a { color: inherit; }
   font-family: var(--mono);
   font-size: .74em;
   letter-spacing: -.02em;
-  color: var(--soft);
+  color: var(--venue);
   white-space: nowrap;
 }
 
-.entry__with::before { content: "/\00a0"; color: var(--faint); }
+.entry__with::before { content: "/\00a0"; color: var(--sep); }
 
 .entry__note {
   grid-column: 2 / -1;
   margin: .5rem 0 .3rem;
   font-family: var(--mono);
-  font-style: italic;
-  font-size: .8em;
-  line-height: 1.6;
-  color: var(--note);
+  font-size: .74em;
+  line-height: 1.45;
+  color: var(--venue);
   text-wrap: pretty;
 }
+
 
 
 
@@ -543,7 +544,7 @@ a.end:focus-visible { background-image: var(--wave); }
   .entry__with::before { content: none; }
 
   /* mono is wide — ease the notes back so they do not sprawl on a phone */
-  .entry__note { font-size: .72em; }
+  .entry__note { font-size: .68em; }
 
 
   /* the six sections stay on a single line; a very narrow screen can swipe it */
