@@ -9,7 +9,8 @@
   --raise:   #EDEBE2;
   --card:    #FFFFFF;
   --venue:   #7A7466;   /* venue, note, co-author credit — the quiet layer */
-  --sep:     #A39C89;   /* the slashes: subnav, and before a co-author credit */
+  --state:   #999280;   /* a status tag: Forthcoming */
+  --sep:     #B5AEA0;   /* the slashes: subnav, and before a tag */
   --ink:     #0F1310;   /* near-black, green bias */
   --soft:    #4B5049;
   --faint:   #8B8F86;
@@ -42,8 +43,9 @@
     --card:  #1A1E1B;
     /* dark needs the three levels pulled further apart or they go muddy */
     --venue: #B3AC98;
-    /* the slashes go dimmer here, not brighter, to stay quieter than the text */
-    --sep:   #615E57;
+    /* the tag and slashes go dimmer here, not brighter, to stay quieter */
+    --state: #8F8A7C;
+    --sep:   #565349;
     --ink:   #EFEEE5;
     --soft:  #B2B5AC;
     --faint: #7C8078;
@@ -356,7 +358,8 @@ a { color: inherit; }
   margin-left: .1em;
 }
 
-.entry__with {
+.entry__with,
+.entry__state {
   font-family: var(--mono);
   font-size: .74em;
   letter-spacing: -.02em;
@@ -364,7 +367,10 @@ a { color: inherit; }
   white-space: nowrap;
 }
 
-.entry__with::before { content: "/\00a0"; color: var(--sep); }
+.entry__state { color: var(--state); }
+
+.entry__with::before,
+.entry__state::before { content: "/\00a0"; color: var(--sep); }
 
 .entry__note {
   grid-column: 2 / -1;
@@ -540,8 +546,12 @@ a.end:focus-visible { background-image: var(--wave); }
     margin: .1rem 0 0;
     text-indent: 0;
   }
-  .entry__with { display: block; white-space: normal; }
-  .entry__with::before { content: none; }
+  /* block children inherit the title's hanging-quote indent — clear it or
+     they sit left of the venue above them */
+  .entry__with,
+  .entry__state { display: block; white-space: normal; text-indent: 0; }
+  .entry__with::before,
+  .entry__state::before { content: none; }
 
   /* mono is wide — ease the notes back so they do not sprawl on a phone */
   .entry__note { font-size: .68em; }
