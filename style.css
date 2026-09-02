@@ -11,6 +11,7 @@
   --venue:   #7A7466;   /* venue, note, co-author credit — the quiet layer */
   --state:   #999280;   /* a status tag: Forthcoming */
   --sep:     #B5AEA0;   /* the slashes: subnav, and before a tag */
+  --chip:    #C7C1B2;   /* the tag's pill — the letters knock out of it in --paper */
   --ink:     #0F1310;   /* near-black, green bias */
   --soft:    #4B5049;
   --faint:   #8B8F86;
@@ -46,6 +47,7 @@
     /* the tag and slashes go dimmer here, not brighter, to stay quieter */
     --state: #8F8A7C;
     --sep:   #565349;
+    --chip:  #C3BCA9;
     --ink:   #EFEEE5;
     --soft:  #B2B5AC;
     --faint: #7C8078;
@@ -358,8 +360,7 @@ a { color: inherit; }
   margin-left: .1em;
 }
 
-.entry__with,
-.entry__state {
+.entry__with {
   font-family: var(--mono);
   font-size: .74em;
   letter-spacing: -.02em;
@@ -367,10 +368,29 @@ a { color: inherit; }
   white-space: nowrap;
 }
 
-.entry__state { color: var(--state); }
+.entry__with::before { content: "/\00a0"; color: var(--sep); }
 
-.entry__with::before,
-.entry__state::before { content: "/\00a0"; color: var(--sep); }
+/* a status tag: small caps in all but name, sitting in a quiet pill. No slash —
+   the pill is the separator, and a slash would sit inside the background box */
+.entry__state {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;            /* optical centring: `middle` lands it a hair low */
+  margin-left: .25em;
+  padding: .26em .42em .2em;
+  border-radius: 2px;
+  background: var(--chip);
+  font-family: var(--mono);
+  font-size: .52em;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .1em;
+  text-indent: 0;
+  text-transform: uppercase;
+  color: var(--paper);
+  white-space: nowrap;
+}
 
 .entry__note {
   grid-column: 2 / -1;
@@ -548,10 +568,8 @@ a.end:focus-visible { background-image: var(--wave); }
   }
   /* block children inherit the title's hanging-quote indent — clear it or
      they sit left of the venue above them */
-  .entry__with,
-  .entry__state { display: block; white-space: normal; text-indent: 0; }
-  .entry__with::before,
-  .entry__state::before { content: none; }
+  .entry__with { display: block; white-space: normal; text-indent: 0; }
+  .entry__with::before { content: none; }
 
   /* mono is wide — ease the notes back so they do not sprawl on a phone */
   .entry__note { font-size: .68em; }
