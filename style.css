@@ -8,7 +8,7 @@
   --paper:   #F4F3ED;   /* bone with a green cast, not cream */
   --raise:   #EDEBE2;
   --card:    #FFFFFF;
-  --venue:   #4B5049;   /* publication line, and the note under an entry */
+  --venue:   #8A8474;   /* venue, note, co-author credit — the quiet layer */
   --sep:     #8A8474;   /* the slash before a co-author credit */
   --ink:     #0F1310;   /* near-black, green bias */
   --soft:    #4B5049;
@@ -41,7 +41,7 @@
     --raise: #171B18;
     --card:  #1A1E1B;
     /* dark needs the three levels pulled further apart or they go muddy */
-    --venue: #8F8A7C;
+    --venue: #C3BCA9;
     /* the slash goes dimmer here, not brighter, to stay quieter than the text */
     --sep:   #6C6860;
     --ink:   #EFEEE5;
