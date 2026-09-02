@@ -8,8 +8,8 @@
   --paper:   #F4F3ED;   /* bone with a green cast, not cream */
   --raise:   #EDEBE2;
   --card:    #FFFFFF;
-  --venue:   #8A8474;   /* publication line */
-  --note:    #4B5049;   /* the extra line under an entry */
+  --venue:   #4B5049;   /* publication line */
+  --note:    #8A8474;   /* the extra line under an entry */
   --ink:     #0F1310;   /* near-black, green bias */
   --soft:    #4B5049;
   --faint:   #8B8F86;
@@ -41,8 +41,8 @@
     --raise: #171B18;
     --card:  #1A1E1B;
     /* dark needs the three levels pulled further apart or they go muddy */
-    --venue: #C3BCA9;
-    --note:  #8F8A7C;
+    --venue: #8F8A7C;
+    --note:  #C3BCA9;
     --ink:   #EFEEE5;
     --soft:  #B2B5AC;
     --faint: #7C8078;
@@ -347,7 +347,7 @@ a { color: inherit; }
 .entry__venue {
   font-family: var(--mono);
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
   font-size: .76em;
   letter-spacing: -.02em;
   color: var(--venue);
